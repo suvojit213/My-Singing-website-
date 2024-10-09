@@ -35,7 +35,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ffeb3b;
+    background: linear-gradient(to right, #ff512f, #dd2476); /* Same red to orange gradient */
+    color: #fff; /* Ensure text remains white */
 }
 
 main {
