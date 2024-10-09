@@ -1,42 +1,119 @@
-body {
-    font-family: Arial, sans-serif;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background color */
+}
+
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 15px 0;
+    background: linear-gradient(to right, #ff512f, #dd2476); /* Red to orange gradient */
+    padding: 10px 0;
     text-align: center;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+/* Navbar Link Styles */
+nav ul li a {
+    color: #fff;
+    font-weight: bold; /* Bolder navbar text */
+    text-decoration: none;
+    padding: 1px 3px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    Smoother gradient */
+    transition: background 0.4s ease, color 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    color: #ffd8c2; /* Subtle orange text on hover */
+    background: #ff7f50; /* Slightly darker orange on hover */
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0%; /* Start from left */
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transition: left 0.4s ease; /* Smooth animation */
+}
+
+nav ul li a:hover::before {
+    left: 0; /* Move into view */
+}
+
+nav ul li a span {
+    position: relative;
+    z-index: 1; /* Ensure the text stays above the animation */
+    transition: color 0.5s ease; /* Smooth text color change */
+}
+
+nav ul li a:hover span {
+    color: rgba(255, 127, 80, 0.8); /* Text turns orange with fade */
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    margin: 0 15px; /* Increase margin for spacing */
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
+/* Main Content */
 main {
-    padding: 20px;
+    padding: 20px; /* Add padding around main content */
 }
 
-section {
+#introduction {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    padding: 20px;
     margin: 20px 0;
 }
 
+h2 {
+    color: #333; /* Darker color for section headings */
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #4a90e2;
+    transition: color 0.3s;
+}
+
+/* Footer */
 footer {
+    background: #333; /* Darker footer background */
+    color: #fff;
     text-align: center;
     padding: 10px 0;
-    background-color: #333;
-    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column; /* Stack items vertically */
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
 }
