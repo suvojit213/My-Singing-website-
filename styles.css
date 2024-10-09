@@ -102,11 +102,11 @@ footer {
     background: #333; /* Darker footer background */
     color: #fff;
     text-align: center;
-    padding: 20px; /* Increased padding for a button-like effect */
+    padding: 10px; /* Increased padding for a button-like effect */
     position: relative;
-    bottom: 0;
+    bottom: -100px;
     width: 100%;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 100px; /* Rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Light shadow for depth */
     margin-top: 20px; /* Add some space above the footer */
     display: flex; /* Use flexbox for layout */
@@ -117,19 +117,10 @@ footer {
 footer p {
     margin: 0; /* Remove margin from paragraph for better alignment */
     font-size: 16px; /* Adjust font size if necessary */
-    text-align: right; /* Align text to the right */
-    flex: 1; /* Allow the copyright text to take space */
+    text-align: center; /* Align text to the right */
+    flex: 2; /* Allow the copyright text to take space */
 }
 
-/* Add a div for any other footer content if necessary */
-footer .footer-content {
-    flex: 1; /* Allow this section to take space */
-}
-
-/* Add additional styles for the copyright text if needed */
-footer .copyright {
-    margin-right: 10px; /* Margin to the right */
-}
 
 /* Responsive Design */
 @media (max-width: 600px) {
