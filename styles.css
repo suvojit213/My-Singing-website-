@@ -12,33 +12,57 @@ body {
 }
 
 header {
-    background: linear-gradient(to right, #ff512f, #dd2476);
+    background: linear-gradient(to right, #ff512f, #dd2476); /* Red to orange gradient */
     padding: 10px 0;
     text-align: center;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
+/* Navbar Link Styles */
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    color: #f1f1f1; /* Default white text for links */
+    text-decoration: none; /* Remove underline */
+    padding:  2px 3px;/* Add padding for better click area */
+    border-radius: 10px; /* Rounded corners for the link */
+    background: linear-gradient(to right, #e64520, #c2215e); /* Darker red to orange gradient */
+    transition: color 0.9s ease, background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold; /* Make text bold */
 }
 
+/* Hover Effect */
 nav ul li a:hover {
-    background: linear-gradient(to right, #ff512f, #dd2476); /* Same red to orange gradient */
-    color: #fff; /* Ensure text remains white */
+    color: rgba(255, 127, 80, 0.7); /* Orange text with slight fading */
+    background: linear-gradient(to right, #ff512f, #dd2476); /* Keep the red to orange gradient */
 }
 
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0%; /* Start from left */
+    width: 100%;
+    height: 100%;
+    
+    z-index: 0;
+    transition: left 0.3s ease; /* Smooth movement */
+}
+
+nav ul li a:hover::before {
+    left: 0; /* Hover effect slides in slightly */
+}
+
+nav ul li a span {
+    position: relative;
+    z-index: 1; /* Ensure the text stays above the animation */
+    transition: color 0.5s ease; /* Smooth text color change */
+}
+
+nav ul li a:hover span {
+    color: rgba(255, 127, 80, 0.8); /* Text turns orange with fade */
+}
+
+/* Main Content */
 main {
     padding: 20px; /* Add padding around main content */
 }
@@ -69,10 +93,7 @@ ul li a {
     transition: color 0.3s;
 }
 
-ul li a:hover {
-    color: #ff5722;
-}
-
+/* Footer */
 footer {
     text-align: center;
     padding: 10px 0;
@@ -83,6 +104,7 @@ footer {
     width: 100%;
 }
 
+/* Responsive Design */
 @media (max-width: 600px) {
     nav ul li {
         display: block;
