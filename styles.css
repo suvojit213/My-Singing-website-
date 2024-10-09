@@ -19,21 +19,22 @@ header {
 
 /* Navbar Link Styles */
 nav ul li a {
-    color: #f1f1f1; /* Default white text for links */
-    text-decoration: none; /* Remove underline */
-    padding:  2px 3px;/* Add padding for better click area */
-    border-radius: 10px; /* Rounded corners for the link */
-    background: linear-gradient(to right, #e64520, #c2215e); /* Darker red to orange gradient */
-    transition: color 0.9s ease, background 0.3s ease;
+    color: #fff;
+    font-weight: bold; /* Bolder navbar text */
+    text-decoration: none;
+    padding: 1px 3px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    Smoother gradient */
+    transition: background 0.4s ease, color 0.4s ease;
     position: relative;
     overflow: hidden;
-    font-weight: bold; /* Make text bold */
 }
 
 /* Hover Effect */
 nav ul li a:hover {
-    color: rgba(255, 127, 80, 0.7); /* Orange text with slight fading */
-    background: linear-gradient(to right, #ff512f, #dd2476); /* Keep the red to orange gradient */
+    color: #ffd8c2; /* Subtle orange text on hover */
+    background: #ff7f50; /* Slightly darker orange on hover */
 }
 
 nav ul li a::before {
@@ -43,13 +44,12 @@ nav ul li a::before {
     left: 0%; /* Start from left */
     width: 100%;
     height: 100%;
-    
     z-index: 0;
-    transition: left 0.3s ease; /* Smooth movement */
+    transition: left 0.4s ease; /* Smooth animation */
 }
 
 nav ul li a:hover::before {
-    left: 0; /* Hover effect slides in slightly */
+    left: 0; /* Move into view */
 }
 
 nav ul li a span {
@@ -62,17 +62,21 @@ nav ul li a:hover span {
     color: rgba(255, 127, 80, 0.8); /* Text turns orange with fade */
 }
 
+nav ul li {
+    margin: 0 15px; /* Increase margin for spacing */
+}
+
 /* Main Content */
 main {
     padding: 20px; /* Add padding around main content */
 }
 
 #introduction {
-    background-color: #fff; /* White background for the introduction */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    padding: 20px; /* Padding inside the introduction section */
-    margin: 20px 0; /* Margin around the introduction section */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    padding: 20px;
+    margin: 20px 0;
 }
 
 h2 {
@@ -95,10 +99,10 @@ ul li a {
 
 /* Footer */
 footer {
+    background: #333; /* Darker footer background */
+    color: #fff;
     text-align: center;
     padding: 10px 0;
-    background: #333; /* Dark background for footer */
-    color: #fff; /* White text for footer */
     position: relative;
     bottom: 0;
     width: 100%;
@@ -106,8 +110,10 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 600px) {
+    nav ul {
+        flex-direction: column; /* Stack items vertically */
+    }
     nav ul li {
-        display: block;
         margin: 10px 0;
     }
 }
