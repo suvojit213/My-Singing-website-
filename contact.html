@@ -37,36 +37,46 @@
         <p>© 2024 Suvojeet Sengupta. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
+   <script>
+        document.getElementById('contact-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
 
-            const formData = new FormData(this);
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
             const data = {
-                title: `Contact Form Submission from ${formData.get('name')}`,
-                body: `Name: ${formData.get('name')}\nEmail: ${formData.get('email')}\nMessage: ${formData.get('message')}`,
+                name: name,
+                email: email,
+                message: message
             };
 
-            fetch('https://api.github.com/repos/suvojit213/contact_me/issues', {
+            const response = await fetch('https://api.github.com/repos/suvojit213/contact_me/issues', {
                 method: 'POST',
                 headers: {
-                    'Authorization': 'token ghp_fCGydJzZKwHR4921eIb085NIKmBZrK', // Use your token here
+                    'Authorization': 'token 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',
                     'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data),
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Message sent successfully!');
-                } else {
-                    alert('Failed to send message. Please try again later.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again later.');
+                body: JSON.stringify({
+                    title: `Contact from ${name}`,
+                    body: `Email: ${email}\n\nMessage:\n${message}`
+                })
             });
+
+            const result = await response.json();
+            const responseMessage = document.getElementById('response-message');
+
+            if (response.ok) {
+                responseMessage.textContent = 'Message sent successfully!';
+                responseMessage.style.color = 'green';
+                document.getElementById('contact-form').reset();
+            } else {
+                responseMessage.textContent = 'Failed to send message. Please try again later.';
+                responseMessage.style.color = 'red';
+            }
         });
     </script>
+    
 </body>
 </html>
