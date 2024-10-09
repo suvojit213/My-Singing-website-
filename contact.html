@@ -20,63 +20,9 @@
     <h1>Contact Me</h1>
     <p>If you have any questions, feel free to reach out using the form below.</p>
     
-    <form id="contact-form">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <button type="submit">Send Message</button>
-    </form>
-
-    <footer>
-        <p>© 2024 Suvojeet Sengupta. All rights reserved.</p>
-    </footer>
-
-   <script>
-        document.getElementById('contact-form').addEventListener('submit', async function (event) {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            const data = {
-                name: name,
-                email: email,
-                message: message
-            };
-
-            const response = await fetch('https://api.github.com/repos/suvojit213/contact_me/issues', {
-                method: 'POST',
-                headers: {
-                    'Authorization': 'token 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',
-                    'Accept': 'application/vnd.github.v3+json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    title: `Contact from ${name}`,
-                    body: `Email: ${email}\n\nMessage:\n${message}`
-                })
-            });
-
-            const result = await response.json();
-            const responseMessage = document.getElementById('response-message');
-
-            if (response.ok) {
-                responseMessage.textContent = 'Message sent successfully!';
-                responseMessage.style.color = 'green';
-                document.getElementById('contact-form').reset();
-            } else {
-                responseMessage.textContent = 'Failed to send message. Please try again later.';
-                responseMessage.style.color = 'red';
-            }
-        });
-    </script>
+    <div class="google-form-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdDxGbF4LFGaHzFKp0LDxv5BF94yyEJKQM5BmDoM8LyMYBpzw/viewform?embedded=true" width="100%" height="718" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
     
 </body>
 </html>
